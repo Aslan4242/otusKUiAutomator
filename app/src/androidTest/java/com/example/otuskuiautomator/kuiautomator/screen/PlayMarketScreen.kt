@@ -10,5 +10,4 @@ object PlayMarketScreen : UiScreen<PlayMarketScreen>() {
 
     val searchField = UiEditText { withText("Search for apps & games") }
     val installButton = UiButton { withContentDescription("Install") }
-    val openButton = UiButton { withContentDescription("Open") }
 }

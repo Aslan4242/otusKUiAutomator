@@ -22,7 +22,7 @@ open class BaseTestCase : TestCase() {
         return before(actions = before).after(after)
     }
 
-     fun TestContext<Unit>.installAndLaunchApp() {
+    fun TestContext<Unit>.installAndLaunchApp() {
         val appName = "Кинопоиск"
 
         if (!device.apps.isInstalled("ru.kinopoisk")) {
@@ -34,7 +34,7 @@ open class BaseTestCase : TestCase() {
                 PlayMarketScreen {
                     searchField {
                         click()
-                        continuously { isDisplayed() }
+                        continuously(1_000L) { isDisplayed() }
                         replaceText(appName)
                         device.uiDevice.pressKeyCode(KeyEvent.KEYCODE_ENTER)
                     }

@@ -11,29 +11,29 @@ import com.kaspersky.kaspresso.testcases.core.testcontext.TestContext
 class SkipWelcomeScreenScenario : Scenario() {
 
     override val steps: TestContext<Unit>.() -> Unit = {
-        WelcomeScreen{
+        WelcomeScreen {
             compose {
-                or(arrowButton){
+                or(arrowButton) {
+                    continuously(5_000L) { isNotDisplayed() }
+                } then {
+                    // do nothing
+                }
+                or(arrowButton) {
                     isDisplayed()
-                }then {
-                    step("Нажимаем три раза на стрелку на экране приветствия") {
+                } then {
+                    step("Нажимаем два раза на стрелку на экране приветствия") {
                         WelcomeScreen {
-                            for (i in 0..2) {
+                            for (i in 0..1) {
                                 arrowButton.click()
                             }
                         }
                     }
 
-                    step("Нажимаем на кнопку 'Пока не нужно' на экране рекламы подписки"){
+                    step("Нажимаем на кнопку 'Пока не нужно' на экране рекламы подписки") {
                         SubscriptionScreen {
                             skipButton.click()
                         }
                     }
-                }
-                or(arrowButton){
-                    isNotDisplayed()
-                } then {
-                    // do nothing
                 }
             }
         }

@@ -8,5 +8,6 @@ object MainScreen : UiScreen<MainScreen>() {
 
     override val packageName: String = "ru.kinopoisk"
 
+    val searchButton = UiButton { withId(this@MainScreen.packageName, "search") }
     val profileButton = UiButton { withId(this@MainScreen.packageName, "profile") }
 }
