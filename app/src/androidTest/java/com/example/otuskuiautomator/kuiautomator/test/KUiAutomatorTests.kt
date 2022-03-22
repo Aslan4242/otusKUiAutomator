@@ -51,7 +51,7 @@ class KUiAutomatorTests : BaseTestCase() {
                     title.isDisplayed()
                     version {
                         isDisplayed()
-                        hasText("Версия 6.19.1, сборка 31445")
+                        containsText("Версия")
                     }
                 }
             }
